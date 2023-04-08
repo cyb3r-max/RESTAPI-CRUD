@@ -32,7 +32,7 @@ class  APIService{
     }catch(e){};
   }
   @override
-  Future<String> postData(ModelData modelData) async{
+  Future<ModelData> postData(ModelData modelData) async{
     final bodyContent= jsonEncode({
       'userId':modelData.userId,
       'title':modelData.title,
@@ -46,15 +46,17 @@ class  APIService{
           body: bodyContent);
 
       if(response.statusCode==201){
-        //print(response.body);
-        return response.body;
+        var postResponse= ModelData.fromJson(jsonDecode(response.body));
+        ModelData responsedData = ModelData(userId: postResponse.userId, id: postResponse.id, title: postResponse.title, body: postResponse.body);
+        print(response.body);
+        return responsedData;
       }else{
         throw Exception('Failed to post');
       }
     }catch(e){print(e);}
-    return 'true';
+    return modelData;
   }
-  Future<String> putData(ModelData modelData) async{
+  Future<ModelData> putData(ModelData modelData) async{
     final bodyContent= jsonEncode({
       'id':modelData.id,
       'userId':modelData.userId,
@@ -71,12 +73,16 @@ class  APIService{
           body: bodyContent);
 
       if(response.statusCode==200){
+        var updateResponse= ModelData.fromJson(jsonDecode(response.body));
+        ModelData responsedData = ModelData(userId: updateResponse.userId, id: updateResponse.id, title: updateResponse.title, body: updateResponse.body);
+
         print(response.body);
-        return response.body;
+
+        return responsedData;
       }else{
         throw Exception('Failed to edit');
       }
     }catch(e){print(e);}
-    return 'true';
+    return modelData;
   }
 }

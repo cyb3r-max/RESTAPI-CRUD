@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:task2inflack/model/modelData.dart';
 import '../api/service.dart';
 
@@ -28,16 +27,10 @@ class DataController extends GetxController{
   void deleteData(int id) {
     APIService.deleteData(id);
   }
-  Future<String> postData(ModelData modelData)async{
-    try{
+  Future<ModelData> postData(ModelData modelData)async{
       return APIService().postData(modelData);
-    }catch(e){print(e);}
-    return 'true';
   }
-  Future<String> putData(ModelData modelData)async{
-    try{
+  Future<ModelData> putData(ModelData modelData)async{
       return APIService().putData(modelData);
-    }catch(e){print(e);}
-    return 'true';
   }
 }
