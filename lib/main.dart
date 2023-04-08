@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:task2inflack/dependencies/dependencies.dart';
-import 'package:task2inflack/routing.dart';
 import 'package:task2inflack/screens/homeScreen.dart';
 import 'package:get/get.dart';
 
@@ -16,11 +14,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
 
-      initialRoute: RouteConstant.homeScreen,
+      home:HomeScreen()
     );
   }
 }
