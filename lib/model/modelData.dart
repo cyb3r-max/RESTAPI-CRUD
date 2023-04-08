@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:http/http.dart';
-
 List<ModelData> ModelDataFromJson(String str) =>
     List<ModelData>.from(json.decode(str).map((x) => ModelData.fromJson(x)));
 
@@ -33,10 +31,4 @@ class ModelData {
         "title": title,
         "body": body,
       };
-/*  Future<List<ModelData>> getData()async{
-    var responseData=json.decode(BaseClient.get());
-    List<ModelData> modelData=[];
-    for(var user in )
-  }*/
-
 }

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:task2inflack/controllers/dataController.dart';
-import 'package:task2inflack/model/modelData.dart';
 import 'package:task2inflack/screens/postScreen.dart';
-
-import '../api/service.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
